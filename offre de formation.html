@@ -1,0 +1,759 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OFPPT - Formation Professionnelle Province de Settat</title>
+    <link rel="stylesheet" href="offre de formation.css" />
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="main.js">
+    <link rel="stylesheet" href="index.html">
+    <link rel="stylesheet" href="Formations.html">
+    <script src="head-foot.js"></script>
+  </head>
+  <body>
+
+
+<section class="ofppt-parcours" id="ofppt-parcours">
+ <div class="ofppt-container">
+    <h2 class="filieres-title">
+      <i class="fa-solid fa-graduation-cap"></i>
+      Découvrez les parcours de formation à l’OFPPT
+    </h2>
+    <div class="section-underline"></div>
+    
+<div class="ofppt-brief">
+  <p class="ofppt-brief__text">
+    Découvrez les parcours de formation de l’OFPPT, conçus pour développer les compétences
+    techniques et professionnelles les plus demandées sur le marché du travail. À travers des
+    programmes alliant pratique, innovation et accompagnement personnalisé, l’OFPPT prépare
+    chaque apprenant à réussir son insertion et son évolution dans la vie active.
+  </p>
+</div>
+
+<div class="ofppt-brief ofppt-brief--banner">
+  <p class="ofppt-brief__text">
+    Découvrez les parcours de formation de l’OFPPT — pratique, innovation et employabilité au cœur de chaque programme.
+  </p>
+</div>
+
+
+    <div class="ofppt-image-wrapper">
+      <img 
+        src="images/formation/Parcours.png" 
+        alt="Parcours de formation à l'OFPPT - Province de Settat" 
+        class="ofppt-parcours-image" 
+        loading="lazy"
+      />
+    </div>
+
+    <div class="ofppt-btns">
+      <a href="images/formation/Parcours.png" download class="btn-download">
+        <i class="fa-solid fa-download"></i> Télécharger l’affiche
+      </a>
+      <button class="btn-open" id="zoom-image">
+        <i class="fa-solid fa-magnifying-glass"></i> Agrandir
+      </button>
+    </div>
+  </div>
+</section>
+
+
+<div class="image-modal" id="image-modal">
+  <span class="close-modal" id="close-modal">&times;</span>
+  <img id="modal-content" class="modal-content" src="" alt="">
+</div>
+<script>
+  const zoomBtn = document.getElementById("zoom-image");
+  const modal = document.getElementById("image-modal");
+  const modalImg = document.getElementById("modal-content");
+  const closeModal = document.getElementById("close-modal");
+  const image = document.querySelector(".ofppt-parcours-image");
+
+  zoomBtn.addEventListener("click", () => {
+    modal.style.display = "flex";
+    modalImg.src = image.src;
+    document.body.style.overflow = "hidden";
+  });
+
+  closeModal.addEventListener("click", () => {
+    modal.style.display = "none";
+    document.body.style.overflow = "";
+  });
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      closeModal.click();
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal.click();
+  });
+</script>
+<section id="secteurs-settat" class="filieres-settat">
+  <div class="wrap">
+    <h2 class="filieres-title">
+      <i class="fa-solid fa-layer-group"></i>
+      Secteurs OFPPT — Province de Settat
+    </h2>
+
+    <div class="ofppt-brief">
+      <p class="ofppt-brief__text">
+        Explorez les secteurs présents dans la province de Settat. Cliquez sur une carte pour découvrir
+        la présentation du secteur, la vidéo, les chiffres clés, les compétences recherchées et les filières proposées.
+      </p>
+    </div>
+
+    <div class="secteurs-grid">
+      <!-- 1. Arts et Industries Graphiques -->
+      <article class="sector-tile">
+        <a href="secteur.html?slug=arts-industries-graphiques" class="sector-tile__link">
+          <div class="sector-tile__image-wrapper">
+            <img
+              src="https://www.hack-academy.fr/wp-content/uploads/2024/04/20240404_660ea31a28248.jpg"
+              alt="Secteur Arts et Industries Graphiques"
+              class="sector-tile__image"
+              loading="lazy"
+            />
+          </div>
+          <div class="sector-tile__body">
+            <h3 class="sector-tile__title">Arts et Industries Graphiques</h3>
+            <p class="sector-tile__excerpt">
+              La création artistique et graphique est votre domaine de prédilection ? La conception visuelle
+              et la mise en scène vous passionnent ? Se former aux métiers de création et de production graphique
+              est un premier pas vers une carrière épanouie.
+            </p>
+          </div>
+        </a>
+      </article>
+
+      <!-- 2. Digital et Intelligence Artificielle -->
+      <article class="sector-tile">
+        <a href="secteur.html?slug=digital-intelligence-artificielle" class="sector-tile__link">
+          <div class="sector-tile__image-wrapper">
+            <img
+              src="https://blog.digitalcook.fr/wp-content/uploads/2024/06/programming-background-with-person-working-with-codes-computer-scaled.webp"
+              alt="Secteur Digital et Intelligence Artificielle"
+              class="sector-tile__image"
+              loading="lazy"
+            />
+          </div>
+          <div class="sector-tile__body">
+            <h3 class="sector-tile__title">Digital et Intelligence Artificielle</h3>
+            <p class="sector-tile__excerpt">
+              Le secteur du digital au Maroc affiche une forte croissance, portée par la transformation numérique.
+              Développement, data, IA et services numériques offrent de nombreuses opportunités d’emploi.
+            </p>
+          </div>
+        </a>
+      </article>
+
+      <!-- 3. Génie Electrique -->
+      <article class="sector-tile">
+        <a href="secteur.html?slug=genie-electrique" class="sector-tile__link">
+          <div class="sector-tile__image-wrapper">
+            <img
+              src="https://f.hellowork.com/obs-static-images/seo/ObsJob/technicien-electricien.jpg"
+              alt="Secteur Génie Electrique"
+              class="sector-tile__image"
+              loading="lazy"
+            />
+          </div>
+          <div class="sector-tile__body">
+            <h3 class="sector-tile__title">Génie Electrique</h3>
+            <p class="sector-tile__excerpt">
+              Secteur vital de l’économie nationale, l’industrie électrique au Maroc enregistre des progrès
+              remarquables dans les installations, le contrôle, la distribution et la maintenance des équipements.
+            </p>
+          </div>
+        </a>
+      </article>
+
+      <!-- 4. Génie Mécanique -->
+      <article class="sector-tile">
+        <a href="secteur.html?slug=genie-mecanique" class="sector-tile__link">
+          <div class="sector-tile__image-wrapper">
+            <img
+              src="https://exploreengineering.ca/sites/default/files/NEM-web-quiz/NEM_mechanical.jpg"
+              alt="Secteur Génie Mécanique"
+              class="sector-tile__image"
+              loading="lazy"
+            />
+          </div>
+          <div class="sector-tile__body">
+            <h3 class="sector-tile__title">Génie Mécanique</h3>
+            <p class="sector-tile__excerpt">
+              Le secteur des industries mécaniques occupe une place de choix dans l’industrie marocaine :
+              conception, fabrication, réglage, maintenance et assemblage de pièces et produits métalliques.
+            </p>
+          </div>
+        </a>
+      </article>
+
+      <!-- 5. Gestion et Commerce -->
+      <article class="sector-tile">
+        <a href="secteur.html?slug=gestion-commerce" class="sector-tile__link">
+          <div class="sector-tile__image-wrapper">
+            <img
+              src="https://www.descripciondepuestos.org/wp-content/uploads/2024/09/gtpm2Ti0l96ZIemyDPUvH.png.webp"
+              alt="Secteur Gestion et Commerce"
+              class="sector-tile__image"
+              loading="lazy"
+            />
+          </div>
+          <div class="sector-tile__body">
+            <h3 class="sector-tile__title">Gestion et Commerce</h3>
+            <p class="sector-tile__excerpt">
+              Secteurs transversaux par excellence, le Commerce et la Gestion ouvrent aux lauréats des voies
+              prometteuses : administration, finance, marketing, vente et ressources humaines.
+            </p>
+          </div>
+        </a>
+      </article>
+
+      <!-- 6. Métiers de l’Automobile -->
+      <article class="sector-tile">
+        <a href="secteur.html?slug=metiers-automobile" class="sector-tile__link">
+          <div class="sector-tile__image-wrapper">
+            <img
+              src="https://www.educatel.fr/wp-content/uploads/2021/04/metier-devenir-mecanicien-auto-6.jpg"
+              alt="Secteur Métiers de l’Automobile"
+              class="sector-tile__image"
+              loading="lazy"
+            />
+          </div>
+          <div class="sector-tile__body">
+            <h3 class="sector-tile__title">Métiers de l’Automobile</h3>
+            <p class="sector-tile__excerpt">
+              L’industrie automobile marocaine connaît une croissance soutenue. Production, maintenance et
+              équipements offrent de nombreuses perspectives d’emploi et d’évolution.
+            </p>
+          </div>
+        </a>
+      </article>
+
+      <!-- 7. Textile Habillement -->
+      <article class="sector-tile">
+        <a href="secteur.html?slug=textile-habillement" class="sector-tile__link">
+          <div class="sector-tile__image-wrapper">
+            <img
+              src="https://miamimarketingschool.com/wp-content/uploads/2021/08/Estrategias-de-marketing-digital-para-sastres.jpg"
+              alt="Secteur Textile Habillement"
+              class="sector-tile__image"
+              loading="lazy"
+            />
+          </div>
+          <div class="sector-tile__body">
+            <h3 class="sector-tile__title">Textile Habillement</h3>
+            <p class="sector-tile__excerpt">
+              L’industrie du Textile et Habillement est en croissance permanente. De la conception à la
+              production, elle joue un rôle clé dans l’économie nationale et les exportations.
+            </p>
+          </div>
+        </a>
+      </article>
+
+      <!-- 8. Tourisme Hôtellerie Restauration -->
+      <article class="sector-tile">
+        <a href="secteur.html?slug=tourisme-hotellerie-restauration" class="sector-tile__link">
+          <div class="sector-tile__image-wrapper">
+            <img
+              src="https://www.78grad.de/wp-content/uploads/78grad-Catering-Event-Location-Unternehmen-004.jpeg"
+              alt="Secteur Tourisme Hôtellerie Restauration"
+              class="sector-tile__image"
+              loading="lazy"
+            />
+          </div>
+          <div class="sector-tile__body">
+            <h3 class="sector-tile__title">Tourisme Hôtellerie Restauration</h3>
+            <p class="sector-tile__excerpt">
+              Destination incontournable, le Maroc dispose de nombreux atouts touristiques. Les métiers du tourisme,
+              de l’hôtellerie et de la restauration sont fortement recherchés.
+            </p>
+          </div>
+        </a>
+      </article>
+
+      <!-- 9. Bâtiment et Travaux Publics -->
+      <article class="sector-tile">
+        <a href="secteur.html?slug=batiment-travaux-publics" class="sector-tile__link">
+          <div class="sector-tile__image-wrapper">
+            <img
+              src="https://www.viametiers.fr/wp-content/uploads/2023/10/metier-Ingenieur-du-BTP.jpg"
+              alt="Secteur Bâtiment et Travaux Publics"
+              class="sector-tile__image"
+              loading="lazy"
+            />
+          </div>
+          <div class="sector-tile__body">
+            <h3 class="sector-tile__title">Bâtiment et Travaux Publics</h3>
+            <p class="sector-tile__excerpt">
+              Véritable levier de croissance, le secteur du BTP offre des perspectives de développement
+              majeures, portées par des chantiers structurants à l’échelle nationale et régionale.
+            </p>
+          </div>
+        </a>
+      </article>
+
+      <!-- 10. Services à la Personne -->
+      <article class="sector-tile">
+        <a href="secteur.html?slug=services-a-la-personne" class="sector-tile__link">
+          <div class="sector-tile__image-wrapper">
+            <img
+              src="https://www.centre-pedagogique-sherwood.com/wp-content/uploads/2023/11/iStock-1170395430-min.webp"
+              alt="Secteur Services à la Personne"
+              class="sector-tile__image"
+              loading="lazy"
+            />
+          </div>
+          <div class="sector-tile__body">
+            <h3 class="sector-tile__title">Services à la Personne</h3>
+            <p class="sector-tile__excerpt">
+              Les services à la personne se développent pour placer l’humain et la communauté au cœur
+              des priorités, en accompagnant enfants, personnes âgées et publics vulnérables au quotidien.
+            </p>
+          </div>
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script>
+
+
+
+window.fillSectorModal = function(title){
+  const d = window.SECTEURS_DATA[title]; if(!d) return;
+  const setBG = (sel,v)=>document.querySelector(sel).style.backgroundImage = `url('${v}')`;
+  const setHTML = (sel,v)=>document.querySelector(sel).innerHTML = v || "";
+  const setText = (sel,v)=>document.querySelector(sel).textContent = v || "";
+
+  setHTML('#sector-icon', d.icon);
+  setText('#sector-title', title);
+  setText('#sector-subtitle', d.subtitle);
+  setText('#sector-desc', d.desc);
+  setBG('#sector-hero-bg', d.image);
+
+  const fillList = (id, arr) => {
+    const box = document.getElementById(id);
+    box.innerHTML = "";
+    const section = box.closest('section, .sector-col') || box.parentElement;
+    if(!arr || !arr.length){ section && (box.parentElement.style.display='none'); return; }
+    box.parentElement.style.display = '';
+    arr.forEach((t,i)=>{
+      const li=document.createElement('li');
+      li.textContent=t;
+      li.style.animationDelay = (30 + i*22) + 'ms';
+      box.appendChild(li);
+      requestAnimationFrame(()=>li.classList.add('appear'));
+    });
+  };
+
+  
+  fillList('sector-competences', d.competences);
+  fillList('sector-soft',        d.soft);
+  fillList('sector-tools',       d.tools);
+  fillList('sector-standards',   d.standards);
+  fillList('sector-debouches',   d.debouches);
+  fillList('sector-filieres',    d.filieres);
+  fillList('sector-prereq',      d.prereq);
+  fillList('sector-stages',      d.stages);
+  fillList('sector-poursuite',   d.poursuite);
+  fillList('sector-employeurs',  d.employeurs);
+  fillList('sector-etabs',       d.etabs);
+  fillList('sector-admission',   d.admission);
+  fillList('sector-contacts',    d.contacts);
+
+  
+
+  
+  const tbody = document.querySelector('#sector-table tbody');
+  tbody.innerHTML = "";
+  if(d.table && d.table.length){
+    d.table.forEach((row,i)=>{
+      const tr=document.createElement('tr');
+      ['filiere','niveau','diplome','duree'].forEach(k=>{
+        const td=document.createElement('td'); td.textContent=row[k]||''; tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    });
+    document.getElementById('sector-table').closest('.tablewrap').style.display='';
+  }else{
+    document.getElementById('sector-table').closest('.tablewrap').style.display='none';
+  }
+
+  
+};
+
+
+(function(){
+  function ready(fn){document.readyState!=='loading'?fn():document.addEventListener('DOMContentLoaded',fn);}
+  ready(function(){
+    const grid = document.getElementById('secteurs-settat'); if(!grid) return;
+    const io=new IntersectionObserver(es=>es.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('is-in'); io.unobserve(en.target); } }),{threshold:.15});
+    grid.querySelectorAll('.card').forEach(c=>io.observe(c));
+  });
+})();
+</script>
+<script>
+
+(function(){
+  
+  const pushUnique = (arr, item, key='filiere')=>{
+    if(Array.isArray(arr)){
+      if(typeof item === 'string'){
+        if(!arr.includes(item)) arr.push(item);
+      } else {
+        if(!arr.some(x => (x?.[key]||'').toLowerCase() === (item?.[key]||'').toLowerCase())){
+          arr.push(item);
+        }
+      }
+    }
+  };
+
+ 
+  const row = (filiere, niveau, diplome, duree)=>({filiere, niveau, diplome, duree});
+  const AUGMENT = {
+    "Bâtiment & Travaux Publics (BTP)": {
+      filieres: [
+        "Bâtiment — Tronc commun",                      
+        "Génie Civil — Tronc commun",                   
+        "Technicien Spécialisé Génie civil",
+        "Géomètre Topographe",
+        "Gros œuvres",
+        "Voirie",
+        "Conducteur d'Engins BTP",
+        "Grutier à Tour (GMA/GME)",
+        "Métreur",
+        "Pose de carrelage sol et mur",
+        "Menuiserie — Tronc commun",
+        "Menuiserie Aluminium",
+        "Menuiserie Métallique",
+        "Hygiène Sécurité Environnement (HSE)"
+      ],
+      table: [
+        row("Bâtiment — Tronc commun","Technicien","Diplômante OFPPT","1 an (TC)"),
+        row("Génie Civil — Tronc commun","Technicien Spécialisé","Diplômante OFPPT","1 an (TC)"),
+        row("Technicien Spécialisé Génie civil","Technicien Spécialisé","Diplômante OFPPT","2 ans"),
+        row("Géomètre Topographe","Technicien Spécialisé","Diplômante OFPPT","2 ans"),
+        row("Gros œuvres","Qualification","Diplômante OFPPT","1 an"),
+        row("Voirie","Qualification","Diplômante OFPPT","1 an"),
+        row("Conducteur d'Engins BTP","Technicien","Qualifiante","6–12 mois"),
+        row("Grutier à Tour (GMA/GME)","Technicien","Qualifiante","6–12 mois"),
+        row("Métreur","Technicien","Qualifiante","6–12 mois"),
+        row("Pose de carrelage sol et mur","Formation qualifiante","Qualifiante","6–10 mois"),
+        row("Menuiserie — Tronc commun","Qualification","Diplômante OFPPT","1 an (TC)"),
+        row("Menuiserie Aluminium","Spécialisation","Diplômante OFPPT","6–12 mois"),
+        row("Menuiserie Métallique","Spécialisation","Diplômante OFPPT","6–12 mois")
+      ]
+    },
+
+    "Industrie Mécanique & Électrique": {
+      filieres: [
+        "Électricité d'Installation",
+        "Électricité de Bâtiment (qualifiante)",
+        "Électricité de Bâtiment (diplômante)",
+        "Électricité d'Entretien Industriel",
+        "Électricité de Maintenance Industrielle",
+        "Electromécanique (Ouvrier Qualifié)",
+        "Electromécanique des Systèmes Automatisés",
+        "Fabrication Mécanique",
+        "Méthodes en Fabrication Mécanique",
+        "Froid Commercial et Climatisation",
+        "Maintenance des Engins du BTP",
+        "Maintenance des engins lourds & véhicules indus (opt. BTP)",
+        "Mécanicien Général Polyvalent",
+        "Réparateur de Véhicules Automobiles",
+        "Réparateur de véhicule automobile (MAALEM)",
+        "Réparation des engins à moteurs (option Automobile)",
+        "Technicien Spécialisé en Diagnostic & Électronique Embarquée"
+      ],
+      table: [
+        row("Électricité d'Installation","Qualification","Diplômante OFPPT","~1 an"),
+        row("Électricité de Bâtiment (qualifiante)","Spécialisation","Qualifiante","6–12 mois"),
+        row("Électricité de Bâtiment (diplômante)","Spécialisation","Diplômante OFPPT","~1 an"),
+        row("Électricité d'Entretien Industriel","Qualification","Diplômante OFPPT","~1 an"),
+        row("Électricité de Maintenance Industrielle","Technicien","Diplômante OFPPT","2 ans"),
+        row("Electromécanique (OQ)","Qualification","Diplômante OFPPT","~1 an"),
+        row("Electromécanique des Systèmes Automatisés","Technicien Spécialisé","Diplômante OFPPT","2 ans"),
+        row("Fabrication Mécanique","Technicien","Diplômante OFPPT","2 ans"),
+        row("Méthodes en Fabrication Mécanique","Technicien Spécialisé","Diplômante OFPPT","2 ans"),
+        row("Froid Commercial et Climatisation","Technicien / TS","Diplômante OFPPT","2 ans"),
+        row("Maintenance des Engins du BTP","Technicien Spécialisé","Diplômante OFPPT","2 ans"),
+        row("Maintenance engins lourds & véhicules indus (opt. BTP)","Technicien","Qualifiante","6–12 mois"),
+        row("Mécanicien Général Polyvalent","Qualification","Diplômante OFPPT","~1 an"),
+        row("Réparateur de Véhicules Automobiles","Qualification","Diplômante OFPPT","~1 an"),
+        row("Réparateur de véhicule automobile (MAALEM)","Spécialisation","Qualifiante","6–10 mois"),
+        row("Réparation des engins à moteurs (option Automobile)","Technicien","Diplômante OFPPT","2 ans"),
+        row("Technicien Spécialisé en Diagnostic & Électronique Embarquée","Technicien Spécialisé","Diplômante OFPPT","2 ans")
+      ]
+    },
+
+    "Technologies Digitales": {
+      filieres: [
+        "Développement Digital — Tronc commun",
+        "Développement Digital option Applications Mobiles",
+        "Développement Digital option Web Full Stack",
+        "Infrastructure Digitale — Tronc commun",
+        "Infrastructure Digitale option Cyber sécurité",
+        "Infrastructure Digitale option Systèmes et Réseaux",
+        "Infographie"
+      ],
+      table: [
+        row("Développement Digital — Tronc commun","Technicien Spécialisé","Diplômante OFPPT","1 an (TC)"),
+        row("Développement Digital option Applications Mobiles","Technicien Spécialisé","Diplômante OFPPT","+1 an (parcours)"),
+        row("Développement Digital option Web Full Stack","Technicien Spécialisé","Diplômante OFPPT","+1 an (parcours)"),
+        row("Infrastructure Digitale — Tronc commun","Technicien Spécialisé","Diplômante OFPPT","1 an (TC)"),
+        row("Infrastructure Digitale option Cyber sécurité","Technicien Spécialisé","Diplômante OFPPT","+1 an (parcours)"),
+        row("Infrastructure Digitale option Systèmes et Réseaux","Technicien Spécialisé","Diplômante OFPPT","+1 an (parcours)"),
+        row("Infographie","Technicien Spécialisé","Diplômante OFPPT","2 ans")
+      ]
+    },
+
+    "Tourisme, Hôtellerie & Restauration": {
+      filieres: [
+        "Management hôtelier — Tronc commun",
+        "Management hôtelier option Gestion hôtelière",
+        "Arts culinaires — Tronc commun",
+        "Arts culinaires option Cuisine Marocaine",
+        "Arts culinaires option Cuisine Gastronomique",
+        "Agent de Restauration",
+        "Housekeeping",
+        "Service de Restauration « Arts de table »",
+        "Management de projets (secteur THR)"
+      ],
+      table: [
+        row("Management hôtelier — Tronc commun","Technicien Spécialisé","Diplômante OFPPT","1 an (TC)"),
+        row("Management hôtelier option Gestion hôtelière","Technicien Spécialisé","Diplômante OFPPT","+1 an (parcours)"),
+        row("Arts culinaires — Tronc commun","Technicien","Diplômante OFPPT","1 an (TC)"),
+        row("Arts culinaires option Cuisine Marocaine","Technicien","Diplômante OFPPT","2 ans"),
+        row("Arts culinaires option Cuisine Gastronomique","Technicien","Diplômante OFPPT","2 ans"),
+        row("Agent de Restauration","Qualification","Diplômante OFPPT","~1 an"),
+        row("Housekeeping","Qualification","Diplômante OFPPT","~1 an"),
+        row("Service de Restauration « Arts de table »","Technicien","Diplômante OFPPT","2 ans")
+      ]
+    },
+
+    "Gestion & Commerce": {
+      filieres: [
+        "Assistant Administratif — Tronc commun",
+        "Assistant Administratif option Commerce",
+        "Assistant Administratif option Comptabilité",
+        "Assistant Administratif option Gestion",
+        "Gestion des Entreprises — Tronc commun",
+        "Gestion des Entreprises option Commerce & Marketing",
+        "Gestion des Entreprises option Comptabilité & Finance",
+        "Gestion des Entreprises option Ressources Humaines",
+        "Certification Microsoft Office Specialist — Word",
+        "Certification Microsoft Office Specialist — Excel (Expert)",
+        "Certification Microsoft Office Specialist — PowerPoint",
+        "Certification Microsoft Office Specialist — Outlook",
+        "Certification Microsoft Office Specialist — Access"
+      ],
+      table: [
+        row("Assistant Administratif — Tronc commun","Technicien","Diplômante OFPPT","1 an (TC)"),
+        row("Assistant Administratif option Commerce","Technicien","Diplômante OFPPT","+1 an (parcours)"),
+        row("Assistant Administratif option Comptabilité","Technicien","Diplômante OFPPT","+1 an (parcours)"),
+        row("Assistant Administratif option Gestion","Technicien","Diplômante OFPPT","+1 an (parcours)"),
+        row("Gestion des Entreprises — Tronc commun","Technicien Spécialisé","Diplômante OFPPT","1 an (TC)"),
+        row("Gestion des Entreprises option Commerce & Marketing","Technicien Spécialisé","Diplômante OFPPT","+1 an (parcours)"),
+        row("Gestion des Entreprises option Comptabilité & Finance","Technicien Spécialisé","Diplômante OFPPT","+1 an (parcours)"),
+        row("Gestion des Entreprises option Ressources Humaines","Technicien Spécialisé","Diplômante OFPPT","+1 an (parcours)"),
+        row("Certification MOS — Word","Technicien","Qualifiante","2–4 mois"),
+        row("Certification MOS — Excel (Expert)","Technicien","Qualifiante","2–4 mois"),
+        row("Certification MOS — PowerPoint","Technicien","Qualifiante","2–4 mois"),
+        row("Certification MOS — Outlook","Technicien","Qualifiante","2–4 mois"),
+        row("Certification MOS — Access","Technicien","Qualifiante","2–4 mois")
+      ]
+    },
+
+    "Métallurgie & Construction Métallique": {
+      filieres: [
+        "Bureau d'Étude en Construction Métallique",
+        "Construction Métallique",
+        "Opérateur Polyvalent Construction Métallique",
+        "Soudage multi procédés"
+      ],
+      table: [
+        row("Bureau d'Étude en Construction Métallique","Technicien Spécialisé","Diplômante OFPPT","2 ans"),
+        row("Construction Métallique","Technicien","Diplômante OFPPT","2 ans"),
+        row("Opérateur Polyvalent Construction Métallique","Qualification","Diplômante OFPPT","~1 an"),
+        row("Soudage multi procédés","Qualification","Diplômante OFPPT","~1 an")
+      ]
+    },
+
+    "Textile & Habillement": {
+      filieres: [
+        "Ouvrier Spécialisé en Coupe & Couture",
+        "Habillement & Textile",
+       
+      ],
+      table: [
+        row("Ouvrier Spécialisé en Coupe & Couture","Spécialisation","Diplômante OFPPT","6–12 mois"),
+        row("Habillement & Textile","Qualification / Technicien","Diplômante OFPPT","12–24 mois"),
+        
+      ]
+    },
+
+    "Social & Éducation": {
+      filieres: [
+        "Agent Socio-Éducatif",
+        "Éducateur Spécialisé dans la Petite Enfance",
+        "Coiffure Femmes" 
+      ],
+      table: [
+        row("Agent Socio-Éducatif","Technicien","Diplômante OFPPT","2 ans"),
+        row("Éducateur Spécialisé Petite Enfance","Technicien Spécialisé","Diplômante OFPPT","2 ans"),
+        row("Coiffure Femmes","Spécialisation","Qualifiante","6–10 mois")
+      ]
+    },
+
+    "Agriculture & Agroalimentaire": {
+      filieres: [
+        "Techniques Agricoles & Agroalimentaire"
+      ],
+      table: [
+        row("Techniques Agricoles & Agroalimentaire","Qualification / Technicien","Diplômante OFPPT","12–24 mois")
+      ]
+    }
+  };
+
+  
+  const ROOT = (window.SECTEURS_DATA || window.SecteursData || {});
+  Object.keys(AUGMENT).forEach(sector=>{
+    if(!ROOT[sector]) ROOT[sector] = {};
+    const source = AUGMENT[sector];
+    
+    ROOT[sector].filieres = ROOT[sector].filieres || [];
+    (source.filieres||[]).forEach(f=>pushUnique(ROOT[sector].filieres, f));
+    
+    ROOT[sector].table = ROOT[sector].table || [];
+    (source.table||[]).forEach(r=>pushUnique(ROOT[sector].table, r, 'filiere'));
+  });
+
+  
+  window.SECTEURS_DATA = ROOT;
+})();
+</script>
+ <section class="ofppt-parcours" id="formations">
+  <div class="ofppt-container">
+    <h2 class="filieres-title">
+      <i class="fa-solid fa-graduation-cap"></i>
+      Découvrez les formations à l’OFPPT
+    </h2>
+    <div class="section-underline"></div>
+<section class="tracks-intro">
+  <div class="tracks-intro__content">
+    
+    <p class="ofppt-brief"><strong>
+      Vous cherchez une formation qui répond à vos aspirations professionnelles
+      et tient compte de votre potentiel ?<br><br>
+      Découvrez notre panoplie de filières accessibles dès la 1ère année de formation
+      ou accédez à nos troncs communs, avant de choisir une option de spécialisation
+      pour la 2ème année.<br><br>
+      Informez-vous sur les conditions d’admission, les modalités de sélection,
+      l’organisation de la formation… En bref, tout ce qu’il faut savoir pour avancer
+      dans vos recherches !
+    </strong>
+    </p>
+  </div>
+
+
+  <div class="tracks-intro__photos-content">
+    <div class="tracks-intro__photos">
+      
+      <figure class="photo-card"><img src="https://www.myway.ac.ma/_next/image?url=%2Fimages%2Ffiliere-image1.png&w=256&q=75" alt=""></figure>
+      <figure class="photo-card"><img src="https://www.myway.ac.ma/_next/image?url=%2Fimages%2Ffiliere-image2.png&w=256&q=75" alt=""></figure>
+      <figure class="photo-card"><img src="https://www.myway.ac.ma/_next/image?url=%2Fimages%2Ffiliere-image3.png&w=256&q=75" alt=""></figure>
+      <figure class="photo-card"><img src="https://www.myway.ac.ma/_next/image?url=%2Fimages%2Ffiliere-image4.png&w=256&q=75" alt=""></figure>
+      <figure class="photo-card"><img src="https://www.myway.ac.ma/_next/image?url=%2Fimages%2Ffiliere-image5.png&w=256&q=75" alt=""></figure>
+      <figure class="photo-card"><img src="https://www.myway.ac.ma/_next/image?url=%2Fimages%2Ffiliere-image6.png&w=256&q=75" alt=""></figure>
+    </div>
+  </div>
+</div>
+  
+  <div class="tracks-intro__cta">
+    <a href="Formations.html" class="btn-primary btn-lg">
+      Découvrez nos formations
+    </a>
+  </div>
+</section>
+<script>
+  document.addEventListener('click', function(e){
+    const a = e.target.closest('a[href^="#"]');
+    if(!a) return;
+    const id = a.getAttribute('href').slice(1);
+    const target = document.getElementById(id);
+    if(target){
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+</script>
+<script>
+  (function(){
+    const cards = document.querySelectorAll('.tracks-intro__photos .photo-card');
+    if (!('IntersectionObserver' in window) || !cards.length){
+      cards.forEach(el => el.classList.add('is-in')); 
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting){
+          const i = [...cards].indexOf(e.target);
+          e.target.style.transitionDelay = (i * 90) + 'ms'; 
+          e.target.classList.add('is-in');
+          io.unobserve(e.target); 
+        }
+      });
+    }, {threshold: 0.15});
+
+    cards.forEach(el => io.observe(el));
+  })();
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+
+<div id="chatbot-container">
+  
+  <div id="chatbot-bubble" title="Discuter avec nous">
+    <i class="fa-solid fa-comments"></i>
+  </div>
+
+  
+  <div class="chatbot-card" id="chatbot-card">
+    <div class="chatbot-header">
+      <h4><i class="fa-solid fa-robot"></i> Assistance OFPPT Settat</h4>
+      <button id="close-chatbot" aria-label="Fermer le chatbot">&times;</button>
+    </div>
+    <iframe src="http://127.0.0.1:5000" title="Chatbot OFPPT" class="chatbot-frame"></iframe>
+  </div>
+</div>
+
+<script>
+  
+  const chatbotBubble = document.getElementById("chatbot-bubble");
+  const chatbotCard = document.getElementById("chatbot-card");
+  const closeChatbot = document.getElementById("close-chatbot");
+
+  chatbotBubble.addEventListener("click", () => {
+    chatbotCard.classList.toggle("visible");
+  });
+
+  closeChatbot.addEventListener("click", () => {
+    chatbotCard.classList.remove("visible");
+  });
+</script>
+</body>
+</html>

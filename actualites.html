@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actualités - OFPPT Settat</title>
+  <link rel="stylesheet" href="styles.css"> 
+  <link rel="stylesheet" href="style2.css"> 
+  <link rel="stylesheet" href="Actualites.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <script src="head-foot.js"></script>
+  <script src="actualites.js"></script>
+</head>
+
+<body data-page="public">
+  
+
+  
+<div class="app-container"> 
+ <section class="complexes-container">
+  <h1 class="section-title" style="color: var(--dark-blue);">Actualités & Événements</h1>
+  <div class="section-underline"></div>
+  <div class="ofppt-brief">
+    <p class="ofppt-brief__text">
+   <strong>Restez connectés aux actualités et événements de l’OFPPT Settat</strong>
+Suivez en temps réel les dernières nouvelles, initiatives et temps forts qui marquent la vie de nos établissements au sein de la province de Settat. Découvrez nos actions de terrain, les projets innovants, les journées portes ouvertes, les concours, les formations certifiantes, ainsi que toutes les opportunités destinées aux stagiaires, aux entreprises partenaires et au grand public.
+Grâce à nos mises à jour régulières, vous ne manquerez aucune information essentielle sur le développement de la formation professionnelle, les nouveautés pédagogiques et les événements institutionnels qui dynamisent notre communauté OFPPT.
+    </p>
+  </div>
+</section>
+    <main class="content">
+      <section>
+        <div id="actusGrid" class="actus-grid"></div>
+        <p id="noActusPublic" class="empty-message" style="display:none;">
+          Aucune actualité n'est disponible pour le moment. Revenez plus tard.
+        </p>
+      </section>
+    </main>
+
+    <!-- Modal de détail -->
+    <div id="actusModal" class="modal-overlay" style="display:none;">
+      <div class="modal-card">
+        <button id="closeModalBtn" class="modal-close">&times;</button>
+        <div class="modal-image-wrapper">
+          <img id="modalImage" src="" alt="Image actualité" class="modal-image">
+        </div>
+        <div class="modal-content">
+          <div class="modal-header">
+            <span id="modalType" class="badge"></span>
+            <span id="modalDate" class="modal-date"></span>
+          </div>
+          <h2 id="modalTitle"></h2>
+          <p id="modalResume" class="modal-resume"></p>
+          <div id="modalContenu" class="modal-text"></div>
+
+          <div id="modalMedias" class="modal-medias"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+</html>

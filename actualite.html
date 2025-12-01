@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actualités - OFPPT Settat</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style2.css">
+  <link rel="stylesheet" href="Actualites.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <script src="head-foot.js"></script>
+  <script src="actualites.js"></script>
+</head>
+<body data-page="detail">
+
+
+
+  <div class="app-container">
+    <main class="content">
+      <section class="actu-detail-wrapper">
+        <div class="actu-breadcrumb">
+          <a href="Actualites.html">Actualités & événements</a> · Détail de l'actualité
+        </div>
+        <!-- Carte détail -->
+        <article class="actu-detail-card">
+          <div class="actu-detail-main-image">
+            <img id="detailImage" src="" alt="Image actualité">
+          </div>
+
+          <div class="actu-detail-body">
+            <div class="actu-detail-meta-bar">
+              <div class="actu-detail-meta-left">
+                <span id="detailType" class="badge"></span>
+                <span id="detailDate" class="modal-date"></span>
+              </div>
+            </div>
+
+            <h1 id="detailTitle" class="actu-detail-title"></h1>
+            <p id="detailResume" class="actu-detail-resume"></p>
+
+            <div id="detailContenu" class="actu-detail-text"></div>
+
+            <!-- Galerie médias (images / vidéos / YouTube) -->
+            <div class="actu-gallery-section">
+              <h2 class="actu-gallery-title">Galerie photos & vidéos</h2>
+              <div id="detailMedias" class="gallery-horizontal"></div>
+            </div>
+
+            <div class="actu-detail-back">
+              <a href="Actualites.html" id="backToListBtn" class="btn primary-btn">
+                ← Retour aux actualités
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <p id="detailNotFound" class="empty-message" style="display:none;">
+          Actualité introuvable ou supprimée.
+        </p>
+      </section>
+    </main>
+  </div>
+
+
+
+
+</body>
+</html>

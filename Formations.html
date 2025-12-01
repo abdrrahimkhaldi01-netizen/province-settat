@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Formations OFPPT – Settat</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style2.css">
+  <script src="head-foot.js"></script>
+
+  
+  
+  
+
+
+<style>
+  /* Filtres horizontaux & chips aux couleurs OFPPT (bleu & vert) */
+
+  @keyframes chip-pop {
+    from { opacity:0; transform:translateY(4px) scale(.97); }
+    to   { opacity:1; transform:translateY(0) scale(1); }
+  }
+
+  @keyframes complexe-pulse {
+    0%   { box-shadow:0 0 0 0 rgba(14,165,122,.55); }
+    60%  { box-shadow:0 0 0 12px rgba(14,165,122,0); }
+    100% { box-shadow:0 0 0 0 rgba(14,165,122,0); }
+  }
+
+  .filters{
+    margin-top:22px;
+    margin-bottom:8px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:10px 14px;
+    border-radius:16px;
+    background:linear-gradient(135deg, #e6f3ff, #e2f8f1); /* bleu OFPPT -> vert doux */
+    border:1px solid rgba(0,114,188,0.25);
+    box-shadow:0 10px 25px rgba(15,23,42,0.06);
+  }
+
+  .filters::before{
+    content:"Filtres";
+    font-size:12px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    color:#0b4f7a; /* bleu foncé OFPPT */
+    padding-right:10px;
+    border-right:1px solid rgba(148,163,184,0.55);
+  }
+
+  .filters select{
+    appearance:none;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    min-width:160px;
+    padding:8px 34px 8px 12px;
+    border-radius:999px;
+    border:1px solid rgba(148,163,184,0.7);
+    background-color:#ffffff;
+    font-size:13px;
+    font-weight:500;
+    color:#0f172a;
+    box-shadow:0 3px 8px rgba(15,23,42,0.04);
+    background-image:
+      linear-gradient(45deg, transparent 50%, #0f172a 50%),
+      linear-gradient(135deg, #0f172a 50%, transparent 50%);
+    background-position:
+      calc(100% - 18px) 50%,
+      calc(100% - 12px) 50%;
+    background-size:6px 6px, 6px 6px;
+    background-repeat:no-repeat;
+    cursor:pointer;
+    transition:
+      border-color .15s ease,
+      box-shadow .18s ease,
+      transform .12s ease,
+      background-color .15s ease;
+  }
+
+  .filters select:hover{
+    border-color:#0ea57a;
+    box-shadow:0 5px 14px rgba(15,23,42,0.10);
+    transform:translateY(-1px);
+  }
+
+  .filters select:focus{
+    outline:none;
+    border-color:#0ea57a;
+    box-shadow:
+      0 0 0 1px rgba(14,165,122,.35),
+      0 6px 18px rgba(15,23,42,0.16);
+  }
+
+  /* Ligne de chips (filtres actifs) */
+  .chips{
+    margin-top:8px;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:6px;
+    padding:6px 10px;
+    border-radius:999px;
+    background:#f8fafc;
+    border:1px dashed rgba(148,163,184,0.6);
+  }
+
+  .chips .chip{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:5px 12px;
+    border-radius:999px;
+    font-size:12px;
+    font-weight:500;
+    background:#ffffff;
+    border:1px solid rgba(148,163,184,0.7);
+    color:#0f172a;
+    cursor:pointer;
+    transition:
+      background .16s ease,
+      border-color .16s ease,
+      box-shadow .18s ease,
+      transform .14s ease,
+      opacity .16s ease;
+    animation:chip-pop .25s ease-out both;
+  }
+
+  .chips .chip::after{
+    content:"✕";
+    font-size:10px;
+    opacity:.55;
+  }
+
+  .chips .chip--muted{
+    opacity:.55;
+  }
+
+  .chips .chip--muted:hover{
+    opacity:1;
+  }
+
+  .chips .chip:hover{
+    background:#0ea57a;
+    border-color:#0a825f;
+    color:#ffffff;
+    box-shadow:0 4px 10px rgba(15,23,42,0.18);
+    transform:translateY(-1px);
+  }
+
+  /* Chip du complexe : unique, aux couleurs OFPPT, avec animation */
+  .chips #chip-complexe{
+    background:linear-gradient(135deg, #0072bc, #00a651); /* bleu -> vert OFPPT */
+    border-color:rgba(0,128,128,0.95);
+    color:#ffffff;
+    box-shadow:0 6px 16px rgba(0,128,128,0.55);
+    position:relative;
+    padding-right:16px;
+    animation:chip-pop .25s ease-out both, complexe-pulse 2s ease-out 1.2s infinite;
+  }
+
+  .chips #chip-complexe::before{
+    content:"●";
+    font-size:9px;
+    margin-right:2px;
+    opacity:.9;
+  }
+
+  .chips #chip-complexe::after{
+    opacity:.85;
+  }
+
+  .chips #chip-complexe:hover{
+    background:linear-gradient(135deg, #00a651, #0072bc);
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(0,128,128,0.75);
+  }
+
+  @media (max-width: 840px){
+    .filters{
+      flex-wrap:wrap;
+      align-items:flex-start;
+    }
+    .filters::before{
+      margin-bottom:4px;
+      border-right:none;
+      border-bottom:1px solid rgba(148,163,184,0.35);
+      padding-right:0;
+      padding-bottom:4px;
+      width:100%;
+    }
+    .filters select{
+      min-width:100%;
+    }
+  }
+</style>
+
+
+
+
+
+</head>
+<body>
+
+
+    
+
+<section class="ofppt-parcours" id="ofppt-parcours">
+  <div class="ofppt-brief">
+    <div class="info-hero__media" role="img" aria-label="Étudiants OFPPT à Settat">
+      <img src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?q=80&w=1600&auto=format&fit=crop" alt="Exploration des formations à Settat">
+    </div>
+    <div class="info-hero__body">
+      <h2 id="info-hero-title">Explore les formations OFPPT à Settat</h2>
+      <p>Découvre les filières par secteur, niveau et établissement. Utilise le filtre ci‑dessous pour trouver rapidement la formation qui te correspond.</p>
+    </div>
+  </div>
+</section>
+
+<div class="complexes-bar" id="complexesBar" aria-label="Filtrer par complexe">
+  <button class="complexe-btn is-active" data-complexe="settat">Complexe de Formation Settat</button>
+  <button class="complexe-btn" data-complexe="btp">Ecole Mohammed VI de Formation dans les Métiers du BTP</button>
+  <button class="complexe-btn" data-complexe="benahmed">Complexe de Formation Ben Ahmed</button>
+</div>
+
+<div class="filters">
+  <select id="f-diplome"></select>
+  <select id="f-niveau"></select> 
+  <select id="f-secteur"></select>
+  
+</div>
+<div class="filieres-grid">
+    <div id="chips" class="card card--sector"></div>
+    <div id="counter" class="counter">—</div>
+<div id="cards" class="grid" aria-label="Liste des formations"></div>
+</div>
+    <div class="showmore">
+      <button id="moreBtn" class="btn">Afficher plus</button>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+<script src="benahmed_patch.js"></script>
+<script src="complexes.js"></script>
+<script src="sector-icons.js"></script>
+<script src="list.js"></script>
+ 
+
+  
+<div class="page-gap"></div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<div id="chatbot-container">
+  
+  <div id="chatbot-bubble" title="Discuter avec nous">
+    <i class="fa-solid fa-comments"></i>
+  </div>
+
+  
+  <div class="chatbot-card" id="chatbot-card">
+    <div class="chatbot-header">
+      <h4><i class="fa-solid fa-robot"></i> Assistance OFPPT Settat</h4>
+      <button id="close-chatbot" aria-label="Fermer le chatbot">&times;</button>
+    </div>
+    <iframe src="http://127.0.0.1:5000" title="Chatbot OFPPT" class="chatbot-frame"></iframe>
+  </div>
+</div>
+
+<script>
+  
+  const chatbotBubble = document.getElementById("chatbot-bubble");
+  const chatbotCard = document.getElementById("chatbot-card");
+  const closeChatbot = document.getElementById("close-chatbot");
+
+  chatbotBubble.addEventListener("click", () => {
+    chatbotCard.classList.toggle("visible");
+  });
+
+  closeChatbot.addEventListener("click", () => {
+    chatbotCard.classList.remove("visible");
+  });
+</script>
+</body>
+</html>

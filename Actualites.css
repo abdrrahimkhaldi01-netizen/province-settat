@@ -1,0 +1,528 @@
+/* ================================
+   STYLE PUBLIC ACTUALITÉS
+   ================================ */
+  :root {
+  --primary-green: #2d9f4e;
+  --primary-blue: #1976d2;
+  --light-blue: #e3f2fd;
+  --dark-blue: #0d47a1;
+  --text-dark: #2c3e50;
+  --text-light: #546e7a;
+  --white: #ffffff;
+  --gray-light: #f5f5f5;
+  --gray-medium: #e0e0e0;
+}
+/* Transition apparitions */
+#actusGrid,
+#noActusPublic {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* GRID DES CARTES */
+.actus-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 35px;
+  max-width: 1200px;
+  margin: 32px auto 48px;
+  padding: 0 16px;
+}
+
+/* CARTE D'ACTUALITÉ – style "magazine" propre */
+.actus-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 500px; /* hauteur augmentée */
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.14);
+  border: 1px solid rgba(209, 213, 219, 0.95);
+  transition: all 0.35s ease;
+  cursor: default;
+}
+
+/* léger halo au survol */
+.actus-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.actus-card:hover::before {
+  opacity: 1;
+}
+
+.actus-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px rgba(8, 47, 73, 0.35);
+}
+
+/* === TÊTE DE CARTE : IMAGE (seule) === */
+
+/* conteneur de l'image */
+.actus-card-bg {
+  width: 100%;
+  height: 260px;              /* hauteur de la bande image */
+  overflow: hidden;
+}
+
+/* l'image elle-même (créée en JS) */
+.actus-card-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /* remplit toute la zone (gauche/droite/haut/bas) */
+}
+
+/* On n’utilise plus l’overlay pour le texte */
+.actus-card-overlay {
+  display: none !important;
+}
+
+/* === CONTENU TEXTE SOUS L'IMAGE (zone blanche) === */
+
+.actus-card-content {
+  position: relative;
+  background: #ffffff;
+  padding: 20px 24px 22px;   /* le texte commence juste sous l'image */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 0;
+}
+
+/* TAG & DATE collés sous l'image */
+.actus-meta-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 6px 0;        /* aucun gap supplémentaire vers le haut */
+  padding: 0;
+}
+
+/* Badge type d'actu */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(219, 234, 254, 0.95);
+  color: #0369a1;
+  border: 1px solid #7dd3fc;
+}
+
+/* Date */
+.actus-date {
+  font-size: 0.82rem;
+  color: #16a34a;
+  font-weight: 600;
+}
+
+/* TITRE & RÉSUMÉ */
+.actus-title {
+  font-size: 1.32rem;
+  font-weight: 800;
+  margin: 0;
+  color: #004a99;
+  line-height: 1.4;
+}
+
+.actus-resume {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #374151;
+  margin: 0;
+  max-height: 4.6em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Bas de la carte : texte + bouton Lire plus */
+.actus-card-footer {
+  margin-top: auto;          /* pousse le footer en bas de la carte */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.actus-tag-bottom {
+  font-size: 0.9rem;
+  color: #16a34a;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.actus-tag-bottom::after {
+  content: "→";
+  font-size: 0.95rem;
+}
+
+/* Bouton LIRE PLUS */
+.actus-read-btn {
+  border: none;
+  outline: none;
+  padding: 9px 18px;
+  border-radius: 999px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.38);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.actus-read-btn::after {
+  content: "↗";
+  font-size: 0.9rem;
+}
+
+.actus-read-btn:hover {
+  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+  transform: translateY(-1px);
+}
+
+/* ================================
+   PAGE DÉTAIL SLUG - STYLE "SITE"
+   ================================ */
+
+body[data-page="detail"] {
+  background: radial-gradient(circle at top, rgba(15, 118, 110, 0.08), transparent 55%),
+              #f3f4f6;
+}
+
+.actu-detail-wrapper {
+  max-width: 1100px;
+  margin: 32px auto 60px;
+  padding: 0 10px;
+}
+
+/* Breadcrumb */
+.actu-breadcrumb {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+
+.actu-breadcrumb a {
+  color: #0ea5e9;
+  text-decoration: none;
+}
+
+.actu-breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+/* Carte principale du slug */
+.actu-detail-card {
+  background: #ffffff;
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow: 0 26px 65px rgba(15, 23, 42, 0.24);
+  border: 1px solid rgba(209, 213, 219, 0.95);
+}
+
+/* Image principale */
+.actu-detail-main-image img {
+  width: 100%;
+  max-height: 380px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Meta sous l'image */
+.actu-detail-meta-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 24px 0;
+}
+
+.actu-detail-meta-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Corps du texte */
+.actu-detail-body {
+  padding: 18px 24px 24px;
+}
+
+.actu-detail-title {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 6px 0 8px;
+}
+
+.actu-detail-resume {
+  font-size: 1.02rem;
+  color: #4b5563;
+  margin-bottom: 16px;
+}
+
+.actu-detail-text {
+  font-size: 0.98rem;
+  line-height: 1.85;
+  color: #111827;
+  white-space: pre-wrap;
+  margin-bottom: 22px;
+}
+
+/* Section galerie horizontale */
+.actu-gallery-section {
+  margin-top: 10px;
+  border-top: 1px solid rgba(209, 213, 219, 0.9);
+  padding-top: 16px;
+}
+
+.actu-gallery-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+/* Container scroll horizontal */
+.gallery-horizontal {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scroll-snap-type: x mandatory;
+}
+
+/* Scrollbar */
+.gallery-horizontal::-webkit-scrollbar {
+  height: 8px;
+}
+.gallery-horizontal::-webkit-scrollbar-track {
+  background: transparent;
+}
+.gallery-horizontal::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.9);
+  border-radius: 999px;
+}
+
+/* Chaque média = une "carte" dans le scroll horizontal */
+.gallery-horizontal > div {
+  flex: 0 0 280px;
+  scroll-snap-align: start;
+}
+
+/* Media styles in horizontal gallery */
+.gallery-horizontal img,
+.gallery-horizontal video,
+.gallery-horizontal iframe {
+  width: 100%;
+  border-radius: 18px;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.18);
+}
+
+/* Bouton retour */
+.actu-detail-back {
+  margin-top: 26px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ================================
+   ZOOM IMAGES (LIGHTBOX)
+   ================================ */
+
+body[data-page="public"],
+body[data-page="detail"] {
+  font-family: "Arial", "Helvetica Neue", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.actu-detail-main-image img,
+.gallery-horizontal img,
+.modal-medias img,
+.modal-image {
+  cursor: zoom-in;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gallery-horizontal img:hover,
+.modal-medias img:hover,
+.actu-detail-main-image img:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.25);
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+.image-zoom-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  z-index: 80;
+}
+
+.image-zoom-overlay.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.image-zoom-overlay::after {
+  content: "Cliquez pour fermer";
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.9rem;
+  color: #e5e7eb;
+  opacity: 0.9;
+}
+
+.image-zoom-img {
+  max-width: min(1200px, 90vw);
+  max-height: 90vh;
+  border-radius: 20px;
+  box-shadow: 0 30px 80px rgba(15, 23, 42, 0.9);
+  object-fit: contain;
+}
+
+.image-zoom-overlay,
+.image-zoom-img {
+  cursor: zoom-out;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .actus-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 26px;
+  }
+
+  .actu-detail-body {
+    padding: 16px 16px 20px;
+  }
+
+  .actu-detail-meta-bar {
+    padding: 12px 16px 0;
+  }
+
+  .gallery-horizontal > div {
+    flex-basis: 230px;
+  }
+}
+
+@media (max-width: 768px) {
+  .actu-detail-wrapper {
+    margin-top: 24px;
+    padding: 0 12px;
+  }
+
+  .actu-detail-title {
+    font-size: 1.6rem;
+  }
+
+  .image-zoom-img {
+    max-width: 94vw;
+    max-height: 88vh;
+  }
+}
+
+/* Animation apparition */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ===============================
+   FORCER LE STYLE DES CARTES
+   PAGE PUBLIC (actualites.html)
+   =============================== */
+
+/* La carte : en colonne, fond blanc */
+body[data-page="public"] .actus-card {
+  position: relative !important;
+  background: #ffffff !important;
+  color: #0f172a !important;
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 520px; /* tu peux augmenter / diminuer */
+  border-radius: 24px !important;
+  overflow: hidden !important;
+}
+
+/* L'image en HAUT de la carte, seule */
+body[data-page="public"] .actus-card-bg {
+  position: relative !important;
+  inset: auto !important;
+  width: 100% !important;
+  height: 260px !important;    /* hauteur de l'image */
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  filter: none !important;
+  transform: none !important;
+}
+
+/* On coupe totalement l'overlay sombre */
+body[data-page="public"] .actus-card-overlay {
+  display: none !important;
+}
+
+/* Tout le contenu (badge + date + titre + résumé + bouton)
+   descend dans la zone blanche sous l'image */
+body[data-page="public"] .actus-card-content {
+  position: relative !important;
+  background: #ffffff !important;
+  padding: 20px 24px 22px !important;
+  margin: 0 !important;
+  height: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+}
+
+/* Badge + date collés en haut de la zone blanche */
+body[data-page="public"] .actus-meta-top {
+  margin: 0 0 8px 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+/* Petit ajustement du résumé pour ne pas déborder */
+body[data-page="public"] .actus-resume {
+  margin: 0 !important;
+  max-height: 4.5em !important;
+  overflow: hidden !important;
+}

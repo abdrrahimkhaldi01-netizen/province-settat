@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Chatbot OFPPT Settat - Test</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+    }
+    .page {
+      padding: 40px;
+    }
+    h1 {
+      margin: 0 0 10px;
+    }
+    p {
+      margin: 0 0 6px;
+      color: #9ca3af;
+    }
+    #chatToggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.7);
+    }
+    #chatBox {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      width: 320px;
+      height: 430px;
+      background: #020617;
+      border-radius: 14px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .chat-header {
+      padding: 10px 12px;
+      background: #1d4ed8;
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #e5e7eb;
+    }
+    .chat-header strong {
+      font-size: 14px;
+    }
+    .chat-messages {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+      font-size: 13px;
+      background: radial-gradient(circle at top, #0f172a, #020617);
+    }
+    .msg {
+      margin-bottom: 8px;
+      line-height: 1.4;
+      max-width: 90%;
+    }
+    .msg.user {
+      text-align: right;
+      margin-left: auto;
+      color: #bfdbfe;
+    }
+    .msg.bot {
+      text-align: left;
+      margin-right: auto;
+      color: #e5e7eb;
+    }
+    .msg-bubble {
+      display: inline-block;
+      padding: 6px 9px;
+      border-radius: 10px;
+    }
+    .msg.user .msg-bubble {
+      background: #2563eb;
+    }
+    .msg.bot .msg-bubble {
+      background: #020617;
+      border: 1px solid #1e293b;
+    }
+    .chat-input {
+      display: flex;
+      padding: 6px;
+      border-top: 1px solid #1e293b;
+      background: #020617;
+    }
+    .chat-input input {
+      flex: 1;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid #1f2937;
+      background: #020617;
+      color: #e5e7eb;
+      font-size: 13px;
+      outline: none;
+    }
+    .chat-input input::placeholder {
+      color: #6b7280;
+    }
+    .chat-input button {
+      margin-left: 6px;
+      border-radius: 999px;
+      border: none;
+      padding: 7px 12px;
+      font-size: 13px;
+      background: #2563eb;
+      color: #fff;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1>Chatbot OFPPT Settat (Mode test)</h1>
+    <p>Ce chatbot répond uniquement aux questions liées à l’OFPPT dans la province de Settat.</p>
+    <p>Exemples de questions :</p>
+    <p>- Quelles sont les filières en développement digital ?</p>
+    <p>- Comment s'inscrire à l’OFPPT ?</p>
+  </div>
+
+  <button id="chatToggle">💬 Assistant OFPPT</button>
+
+  <div id="chatBox">
+    <div class="chat-header">
+      <strong>Assistant OFPPT Settat</strong>
+      <span>En ligne</span>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="msg bot">
+        <div class="msg-bubble">
+          Bonjour 👋 Je suis l’assistant virtuel de l’OFPPT (province de Settat). Pose-moi ta question.
+        </div>
+      </div>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="chatInput" placeholder="Écris ta question ici...">
+      <button id="chatSend">Envoyer</button>
+    </div>
+  </div>
+
+  <script>
+    const chatToggle = document.getElementById("chatToggle");
+    const chatBox = document.getElementById("chatBox");
+    const chatMessages = document.getElementById("chatMessages");
+    const chatInput = document.getElementById("chatInput");
+    const chatSend = document.getElementById("chatSend");
+
+    chatToggle.addEventListener("click", () => {
+      chatBox.style.display = chatBox.style.display === "flex" ? "none" : "flex";
+      if (chatBox.style.display === "flex") {
+        chatBox.style.display = "flex";
+        chatInput.focus();
+      }
+    });
+
+    function addMessage(text, sender) {
+      const msgDiv = document.createElement("div");
+      msgDiv.className = "msg " + sender;
+      const bubble = document.createElement("div");
+      bubble.className = "msg-bubble";
+      bubble.textContent = text;
+      msgDiv.appendChild(bubble);
+      chatMessages.appendChild(msgDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    async function sendMessage() {
+      const text = chatInput.value.trim();
+      if (!text) return;
+      addMessage(text, "user");
+      chatInput.value = "";
+      chatInput.focus();
+
+      try {
+        const res = await fetch("/api/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: text })
+        });
+        const data = await res.json();
+        addMessage(data.reply || "Réponse vide du serveur.", "bot");
+      } catch (e) {
+        addMessage("Erreur de connexion au serveur.", "bot");
+      }
+    }
+
+    chatSend.addEventListener("click", sendMessage);
+    chatInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") sendMessage();
+    });
+  </script>
+</body>
+</html>

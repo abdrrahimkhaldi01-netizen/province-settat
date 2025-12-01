@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Filière — Détail</title>
+    <link rel="stylesheet" href="style3.css">
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="head-foot.js"></script>
+
+  </head>
+  <body>
+
+<a href="Formations.html" class="back-arrow" title="Retour aux Formations">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+       fill="none" stroke="currentColor" stroke-width="2" 
+       stroke-linecap="round" stroke-linejoin="round">
+    <path d="M15 18l-6-6 6-6"></path>
+  </svg>
+  <span>Retour</span>
+</a>
+
+
+    <main id="detail"></main>
+
+    <script src="data.js"></script>
+    <script src="details2.js"></script>
+
+   
+   
+    <script src="detail.js"></script>
+   
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+
+<div id="chatbot-container">
+  
+  <div id="chatbot-bubble" title="Discuter avec nous">
+    <i class="fa-solid fa-comments"></i>
+  </div>
+
+  
+  <div class="chatbot-card" id="chatbot-card">
+    <div class="chatbot-header">
+      <h4><i class="fa-solid fa-robot"></i> Assistance OFPPT Settat</h4>
+      <button id="close-chatbot" aria-label="Fermer le chatbot">&times;</button>
+    </div>
+    <iframe src="http://127.0.0.1:5000" title="Chatbot OFPPT" class="chatbot-frame"></iframe>
+  </div>
+</div>
+
+<script>
+  
+  const chatbotBubble = document.getElementById("chatbot-bubble");
+  const chatbotCard = document.getElementById("chatbot-card");
+  const closeChatbot = document.getElementById("close-chatbot");
+
+  chatbotBubble.addEventListener("click", () => {
+    chatbotCard.classList.toggle("visible");
+  });
+
+  closeChatbot.addEventListener("click", () => {
+    chatbotCard.classList.remove("visible");
+  });
+</script>
+
+<a href="offre de formation.html" class="back-to-top" title="Retour à la page Formations" aria-label="Retour à la page Formations">
+  
+  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M18 15l-6-6-6 6"></path>
+  </svg>
+</a>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const btn = document.querySelector('.back-to-top');
+  if (!btn) return;
+
+ 
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 150) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.location.href = 'offre de formation.html';
+  });
+});
+</script>
+
+
+
+</body>
+</html>

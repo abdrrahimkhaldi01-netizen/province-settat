@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Gestion des Actualités</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="head-foot.js"></script>
+</head>
+<body data-page="admin">
+  <div class="app-container">
+    <header class="main-header admin-header">
+      <div>
+        <h1>Gestion des Actualités</h1>
+        <p>Ajoutez, modifiez et supprimez les actualités de votre site.</p>
+      </div>
+      <div class="header-actions">
+        <a href="actualites.html" class="btn secondary-btn">Voir la page publique</a>
+        <button id="logoutBtn" class="btn danger-btn">Déconnexion</button>
+      </div>
+    </header>
+
+    <main class="content">
+      <!-- Formulaire d'ajout / modification -->
+      <section class="card form-card">
+        <h2 id="formTitle">Ajouter une actualité</h2>
+        <form id="actusForm">
+          <input type="hidden" id="actusId">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="titre">Titre</label>
+              <input type="text" id="titre" required placeholder="Titre de l'actualité">
+            </div>
+            <div class="form-group">
+              <label for="typeActu">Type</label>
+              <select id="typeActu" required>
+                <option value="">-- Sélectionner --</option>
+                <option value="Annonce">Annonce</option>
+                <option value="Évènement">Évènement</option>
+                <option value="Formation">Formation</option>
+                <option value="Information">Information</option>
+                <option value="Autre">Autre</option>
+              </select>
+            </div>
+          </div>
+         
+
+
+          <div class="form-group">
+            <label for="resume">Résumé (court)</label>
+            <textarea id="resume" rows="2" required placeholder="Résumé court qui sera affiché sur la carte."></textarea>
+          </div>
+          <div class="form-group">
+            <label for="datePerso">Date de l'actualité</label>
+            <input type="date" id="datePerso" class="input-field">
+
+
+          </div>
+
+          <div class="form-group">
+            <label for="contenu">Contenu détaillé</label>
+            <textarea id="contenu" rows="5" required placeholder="Contenu complet de l'actualité. Vous pouvez ajouter des liens, etc."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="imagePrincipale">Image principale (URL)</label>
+            <input type="url" id="imagePrincipale" placeholder="https://...">
+            <small>Image affichée sur la carte et en haut du détail.</small>
+          </div>
+
+          <div class="form-group">
+            <label for="medias">Images & vidéos (une URL par ligne)</label>
+            <textarea id="medias" rows="4" placeholder="https://...image1.jpg&#10;https://...video.mp4&#10;https://www.youtube.com/watch?v=..."></textarea>
+            <small>Les médias seront affichés au milieu de l'actualité (galerie). Une URL par ligne.</small>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn primary-btn">Enregistrer</button>
+            <button type="button" id="resetFormBtn" class="btn secondary-btn">Annuler / Nouveau</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Liste des actualités -->
+      <section class="card list-card">
+        <h2>Liste des actualités</h2>
+        <div id="actusList" class="admin-list"></div>
+        <p id="noActusAdmin" class="empty-message" style="display:none;">
+          Aucune actualité pour le moment. Ajoutez-en une avec le formulaire ci-dessus.
+        </p>
+      </section>
+    </main>
+  </div>
+
+  <script src="actualites.js"></script>
+</body>
+</html>
